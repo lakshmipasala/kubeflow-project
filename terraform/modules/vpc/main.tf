@@ -71,7 +71,7 @@ resource "aws_route_table" "private" {
 
     cidr_block = "0.0.0.0/0"
 
-    nat_gateway_id = aws_nat_gateway.kubeflow_internet_gateway.id
+    nat_gateway_id = aws_nat_gateway.nat_gateway.id
 
   }
 
