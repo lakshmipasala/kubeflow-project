@@ -80,6 +80,7 @@ resource "aws_eks_cluster" "eks" {
   vpc_config {
   subnet_ids = [
     var.private_subnet_id,
+    var.private_1_subnet_id,
     var.public_subnet_id
   ]
 }
@@ -93,7 +94,7 @@ resource "aws_eks_node_group" "nodes" {
   cluster_name    = aws_eks_cluster.eks.name
   node_group_name = "managed-nodes"
   node_role_arn   = aws_iam_role.nodes.arn
-  subnet_ids     = [var.private_subnet_id, ]
+  subnet_ids     = [var.private_subnet_id, var.private_1_subnet_id ]
 
   scaling_config {
     desired_size = 2
