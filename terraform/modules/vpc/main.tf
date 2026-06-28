@@ -35,6 +35,16 @@ resource "aws_subnet" "private" {
   }
 }
 
+resource "aws_subnet" "private_1" {
+  vpc_id = aws_vpc.kubeflow_vpc.id
+  cidr_block = var.private_subnet1
+  availability_zone = var.availability_zones
+  tags = {
+    Name = "private-subnet"
+    "kubernetes.io/role/internal-elb" = "1"
+  }
+}
+
 resource "aws_eip" "nat" {
   domain = "vpc"
 }

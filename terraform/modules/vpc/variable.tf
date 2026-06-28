@@ -14,3 +14,6 @@ variable "private_subnets" {
 variable "availability_zones" {
   type = string
 }
+variable "private_subnet1" {
+  type = string
+}
