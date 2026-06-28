@@ -38,7 +38,7 @@ resource "aws_subnet" "private" {
 resource "aws_subnet" "private_1" {
   vpc_id = aws_vpc.kubeflow_vpc.id
   cidr_block = var.private_subnet1
-  availability_zone = us-east-1b
+  availability_zone = "us-east-1b"
   tags = {
     Name = "private-subnet-1"
     "kubernetes.io/role/internal-elb" = "1"
