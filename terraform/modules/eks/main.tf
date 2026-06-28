@@ -80,7 +80,6 @@ resource "aws_eks_cluster" "eks" {
   vpc_config {
   subnet_ids = [
     var.private_subnet_id,
-    var.private_1_subnet_id,
     var.public_subnet_id
   ]
 }
