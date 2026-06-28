@@ -1,14 +1,14 @@
 output "vpc_id" {
   description = "ID of the VPC"
-  value       = aws_vpc.main.id
+  value       = aws_vpc.kubeflow_vpc.id
 }
 
-output "public_subnet_ids" {
-  description = "List of public subnet IDs"
+output "public_subnet_id" {
+  description = "Public subnet ID"
   value       = aws_subnet.public.id
 }
 
-output "private_subnet_ids" {
-  description = "List of private subnet IDs"
+output "private_subnet_id" {
+  description = "Private subnet ID"
   value       = aws_subnet.private.id
 }
