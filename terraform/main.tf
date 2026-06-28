@@ -6,7 +6,6 @@ terraform {
     }
   }
 }
-
 module "vpc" {
   source = "./modules/vpc"
   availability_zones = var.availability_zones
@@ -14,5 +13,7 @@ module "vpc" {
   public_subnets  = var.public_subnets
   private_subnets = var.private_subnets
   project_name = var.project_name
-
+}
+module "vpc" {
+  source = "./modules/eks"
 }
