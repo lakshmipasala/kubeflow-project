@@ -2,6 +2,18 @@ variable "cluster_name" {
   default = "demo-eks-cluster"
 }
 
+variable "vpc_id" {
+  type = string
+}
+
+variable "private_subnet_id" {
+  type = string
+}
+
+variable "public_subnet_id" {
+  type = string
+}
+
 resource "aws_iam_role" "eks_cluster" {
   name = "eks-cluster-role"
 
@@ -62,11 +74,11 @@ resource "aws_eks_cluster" "eks" {
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
-    subnet_ids = concat(
-      aws_subnet.private.id,
-      aws_subnet.public.id
-    )
-  }
+  subnet_ids = [
+    var.private_subnet_id,
+    var.public_subnet_id
+  ]
+}
 
   depends_on = [
     aws_iam_role_policy_attachment.cluster_policy
