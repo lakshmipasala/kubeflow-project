@@ -14,6 +14,7 @@ module "vpc" {
   private_subnets = var.private_subnets
   project_name = var.project_name
 }
+
 module "eks" {
   source = "./modules/eks"
 }
